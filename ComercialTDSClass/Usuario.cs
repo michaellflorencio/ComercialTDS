@@ -68,29 +68,96 @@ namespace ComercialTDSClass
         }
         public bool Atualizar()
         {
-            return true;
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_usuario_altera";
+            cmd.Parameters.AddWithValue("spid",Id);
+            cmd.Parameters.AddWithValue("spnome", Nome);
+            cmd.Parameters.AddWithValue("spsenha", Senha);
+            cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
+            // usando if ternário, sem fechar conexão
+            return cmd.ExecuteNonQuery() > 0 ? true : false;
+
+            //// usando if/else e fechando a conexão 
+            //if (cmd.ExecuteNonQuery() > 0)
+            //{ 
+            //    cmd.Connection.Close();
+            //return true;
+            //}
+            //else
+            //    return false;
         }
         public static Usuario ObterPorId(int id)
         {
             Usuario usuario = new();
-
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"select * from usuarios where id = {id}";
+            var dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                usuario = new(
+                            dr.GetInt32(0),
+                            dr.GetString(1),
+                            dr.GetString(2),
+                            dr.GetString(3),
+                            Nivel.ObterPorId(dr.GetInt32(4)),
+                            dr.GetBoolean(5)
+                        );
+            }
+            dr.Close();
+            cmd.Connection.Close();
             return usuario;
         }
         public static List<Usuario> ObterLista()
         {
             List<Usuario> usuarios = new();
-
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"select * from usuarios where order by nome";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                usuarios.Add(new(
+                            dr.GetInt32(0),
+                            dr.GetString(1),
+                            dr.GetString(2),
+                            dr.GetString(3),
+                            Nivel.ObterPorId(dr.GetInt32(4)),
+                            dr.GetBoolean(5)
+                            )
+                        );
+            }
+            dr.Close();
+            cmd.Connection.Close();
             return usuarios;
         }
         public static Usuario EfatuarLogin(string email, string senha)
         {
             Usuario usuario = new();
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"select * from usuarios where email = {email} and senha  = {senha}";
+            var dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                usuario = new(
+                            dr.GetInt32(0),
+                            dr.GetString(1),
+                            dr.GetString(2),
+                            dr.GetString(3),
+                            Nivel.ObterPorId(dr.GetInt32(4)),
+                            dr.GetBoolean(5)
+                        );
+            }
+            dr.Close();
+            cmd.Connection.Close();
 
             return usuario;
         }
         public static bool AlterarSenha(string email, string senha)
         {
-            return true;
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"update usuarios set senha = md5({senha}) where email = {email}";
+            return cmd.ExecuteNonQuery() > 0 ? true : false;
+            
         }
 
 
