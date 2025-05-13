@@ -5,15 +5,15 @@ namespace ComercialTDSClass
 {
     public static class Banco
     {
-        public static string? StrConn { get; set; }
+        public static string StrConn { get; set; }
 
         public static MySqlCommand Abrir(string strconn = "")
         {
             MySqlCommand cmd = new();
             StrConn = strconn;
             if (StrConn == string.Empty)
-                StrConn = $@"server=host;database=comercialtdsdb01;user=root;password=root";
-            MySqlConnection cn = new(StrConn); // 10.91.47.35
+                StrConn = $@"server=localhost;database=comercialtdsdb01;user=root;password=";
+            MySqlConnection cn = new(StrConn);
             //cn.ConnectionString = StrConn;
             try
             {
