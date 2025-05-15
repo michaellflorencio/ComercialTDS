@@ -16,5 +16,6 @@ namespace ComercialTDSDesk
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmPrincipal());
         }
+
     }
 }

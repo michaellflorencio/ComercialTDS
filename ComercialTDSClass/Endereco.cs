@@ -35,8 +35,7 @@ namespace ComercialTDSClass
             TipoEndereco = tipoEndereco;
         }
         public Endereco(int clienteId, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uf, string? tipoEndereco)
-        { // esse construtor deve ser utilizado para inserir endereço
-
+        { // este construtor deve ser utilizado para inserir endereço
             ClienteId = clienteId;
             Cep = cep;
             Logradouro = logradouro;

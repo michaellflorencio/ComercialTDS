@@ -35,13 +35,14 @@
             chkExibeSenha = new CheckBox();
             label1 = new Label();
             label2 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btnEntrar
             // 
-            btnEntrar.Location = new Point(201, 250);
+            btnEntrar.Location = new Point(118, 174);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(93, 34);
+            btnEntrar.Size = new Size(96, 35);
             btnEntrar.TabIndex = 0;
             btnEntrar.Text = "&Entrar";
             btnEntrar.UseVisualStyleBackColor = true;
@@ -49,9 +50,9 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(332, 249);
+            btnCancelar.Location = new Point(232, 174);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(93, 35);
+            btnCancelar.Size = new Size(88, 35);
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "&Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -59,25 +60,25 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(180, 126);
+            txtEmail.Location = new Point(113, 90);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Email";
-            txtEmail.Size = new Size(261, 23);
+            txtEmail.Size = new Size(207, 23);
             txtEmail.TabIndex = 2;
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(180, 200);
+            txtSenha.Location = new Point(113, 132);
             txtSenha.Name = "txtSenha";
             txtSenha.PlaceholderText = "Senha";
-            txtSenha.Size = new Size(261, 23);
+            txtSenha.Size = new Size(207, 23);
             txtSenha.TabIndex = 3;
             txtSenha.UseSystemPasswordChar = true;
             // 
             // chkExibeSenha
             // 
             chkExibeSenha.AutoSize = true;
-            chkExibeSenha.Location = new Point(447, 204);
+            chkExibeSenha.Location = new Point(326, 136);
             chkExibeSenha.Name = "chkExibeSenha";
             chkExibeSenha.Size = new Size(89, 19);
             chkExibeSenha.TabIndex = 4;
@@ -87,22 +88,31 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(219, 9);
+            label1.ForeColor = Color.SeaGreen;
+            label1.Location = new Point(152, 9);
             label1.Name = "label1";
-            label1.Size = new Size(206, 28);
+            label1.Size = new Size(126, 15);
             label1.TabIndex = 5;
             label1.Text = "Comercial TDS System";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(247, 85);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(152, 42);
             label2.Name = "label2";
             label2.Size = new Size(138, 21);
             label2.TabIndex = 6;
             label2.Text = "Acesso ao Sistema";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(378, 194);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 7;
+            button1.Text = "Info";
+            button1.UseVisualStyleBackColor = true;
             // 
             // FrmLogin
             // 
@@ -110,8 +120,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancelar;
-            ClientSize = new Size(620, 327);
+            ClientSize = new Size(465, 229);
             ControlBox = false;
+            Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(chkExibeSenha);
@@ -122,6 +133,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Load += FrmLogin_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -136,5 +148,6 @@
         private CheckBox chkExibeSenha;
         private Label label1;
         private Label label2;
+        private Button button1;
     }
 }
