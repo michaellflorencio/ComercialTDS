@@ -34,13 +34,13 @@
             txtId = new TextBox();
             txtNome = new TextBox();
             txtSigla = new TextBox();
-            DgvNiveis = new DataGridView();
+            dgvNiveis = new DataGridView();
             clnID = new DataGridViewTextBoxColumn();
             clnNome = new DataGridViewTextBoxColumn();
             clnSigla = new DataGridViewTextBoxColumn();
             label1 = new Label();
             label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)DgvNiveis).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNiveis).BeginInit();
             SuspendLayout();
             // 
             // btnGravar
@@ -95,20 +95,20 @@
             txtSigla.Size = new Size(100, 23);
             txtSigla.TabIndex = 5;
             // 
-            // DgvNiveis
+            // dgvNiveis
             // 
-            DgvNiveis.AllowUserToAddRows = false;
-            DgvNiveis.AllowUserToDeleteRows = false;
-            DgvNiveis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DgvNiveis.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnSigla });
-            DgvNiveis.Location = new Point(371, 57);
-            DgvNiveis.Name = "DgvNiveis";
-            DgvNiveis.ReadOnly = true;
-            DgvNiveis.RowHeadersVisible = false;
-            DgvNiveis.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DgvNiveis.Size = new Size(280, 180);
-            DgvNiveis.TabIndex = 6;
-            DgvNiveis.CellDoubleClick += dgvNiveis_CellDoubleClick;
+            dgvNiveis.AllowUserToAddRows = false;
+            dgvNiveis.AllowUserToDeleteRows = false;
+            dgvNiveis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNiveis.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnSigla });
+            dgvNiveis.Location = new Point(371, 57);
+            dgvNiveis.Name = "dgvNiveis";
+            dgvNiveis.ReadOnly = true;
+            dgvNiveis.RowHeadersVisible = false;
+            dgvNiveis.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNiveis.Size = new Size(280, 180);
+            dgvNiveis.TabIndex = 6;
+            dgvNiveis.CellDoubleClick += dgvNiveis_CellDoubleClick;
             // 
             // clnID
             // 
@@ -158,7 +158,7 @@
             ClientSize = new Size(681, 284);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(DgvNiveis);
+            Controls.Add(dgvNiveis);
             Controls.Add(txtSigla);
             Controls.Add(txtNome);
             Controls.Add(txtId);
@@ -168,7 +168,7 @@
             Name = "FrmNivel";
             Text = "Cadastro de Nível";
             Load += FrmNivel_Load;
-            ((System.ComponentModel.ISupportInitialize)DgvNiveis).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNiveis).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,7 +181,7 @@
         private TextBox txtId;
         private TextBox txtNome;
         private TextBox txtSigla;
-        private DataGridView DgvNiveis;
+        private DataGridView dgvNiveis;
         private Label label1;
         private Label label2;
         private DataGridViewTextBoxColumn clnID;
